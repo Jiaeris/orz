@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#8BC34A</color>
+    <color name="colorPrimaryDark">#8BC34A</color>
+    <color name="colorAccent">#8BC34A</color>
+
+    <color name="app_green">#8BC34A</color>
+    <color name="white">#FFFFFF</color>
+    <color name="white_smoke">#F5F5F5</color>
+    <color name="snow">#FFFAFA</color>
+    <color name="gray">#CCCCCC</color>
+    <color name="black">#000000</color>
+    <color name="light_pink">#FFB6C1</color>
+    <color name="crimson">#DC143C</color>
+    <color name="dark_green">#4DB6AC</color>
+    <color name="orange_yellow">#FFD648</color>
+
+
+    <color name="mainColor">#FFFFFF</color>
+    <color name="editTxt">#4DB6AC</color>
+    <color name="btnBg_0">#4DB6AC</color>
+
+    <color name="btnBg_1">#8BC34A</color>
+    <color name="btnBg_facebook">#5070A9</color>
+    <color name="btnBg_weibo">#FFD648</color>
+
+    <color name="drawer_head_bg_float">#50000000</color>
+</resources>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="350dp"
+    android:height="96dp"
+    android:viewportHeight="48"
+    android:viewportWidth="150">
+
+    <!-- 第一条横线 -->
+    <path
+        android:name="bar1"
+        android:pathData="M0,23 L140,23"
+        android:strokeAlpha="0.8"
+        android:strokeColor="@color/colorAccent"
+        android:strokeLineCap="square"
+        android:strokeWidth="1" />
+
+    <!--向下的圆弧 -->
+    <path
+        android:name="round"
+        android:pathData="M138 23 A 10 10 0 1 1 138 43 "
+        android:strokeAlpha="0.8"
+        android:strokeColor="@color/colorAccent"
+        android:strokeLineCap="round"
+        android:strokeWidth="1" />
+
+    <!-- 第二条横线-->
+    <path
+        android:name="bar2"
+        android:pathData="M140,43 L0,43"
+        android:strokeAlpha="0.8"
+        android:strokeColor="@color/colorAccent"
+        android:strokeLineCap="square"
+        android:strokeWidth="1" />
+
+</vector>

@@ -1,0 +1,30 @@
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:enabled="true"
+        android:icon="@mipmap/ic_launcher_round"
+        android:shortcutDisabledMessage="@string/test_shortcut_disable_msg"
+        android:shortcutId="test"
+        android:shortcutLongLabel="@string/test_shortcut_long_label"
+        android:shortcutShortLabel="@string/test_shortcut_short_label">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.every.md.activity.ToolbarTabActivity"
+            android:targetPackage="com.every.md" />
+        <categories android:name="android.shortcut.conversation" />
+    </shortcut>
+
+    <shortcut
+        android:enabled="true"
+        android:icon="@mipmap/heart"
+        android:shortcutDisabledMessage="@string/search_shortcut_disable_msg"
+        android:shortcutId="search"
+        android:shortcutLongLabel="@string/search_shortcut_long_label"
+        android:shortcutShortLabel="@string/search_shortcut_short_label">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.every.md.activity.ToolbarImageActivity"
+            android:targetPackage="com.every.md" />
+        <categories android:name="android.shortcut.conversation" />
+    </shortcut>
+
+</shortcuts>

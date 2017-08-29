@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">md-demo</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="account">账号</string>
+    <string name="password">密码</string>
+    <string name="login">登录</string>
+
+    <string name="about">哈哈哈哈哈</string>
+
+    <string name="test">骤眼梦游十年\n成熟些少不免\n比对一下在下凡前 你是如何自勉\n问有几多位 已是无言\n做了大人十年\n无甚好东西推荐\n赶上班进入大楼前\n看着旁人在变\n找幅镜 提你你未变\n还敢坦白吗\n还想去驳嘴吗\n未败给生活吗\n未有磨平的爪牙\n可还时时期盼 再用吗\n踏进笨人乐园\n人是否蠢一点\n把理想放下是何年\n怕越行 还越远\n请归去和世界 大战\n成长的代价\n还需要更多吗\n剩下的怎样花 未有的应否还价\n假如重头来过\n你现有的 问你可愿拿\n问你还可安睡吗\n成长的代价\n还需要更多吗\n剩下的怎样花 未有的应否还价\n始终意难平吗\n要是有火 别太快升华\n明年还懂感动吗 yeah\n还想发脾气吧\n夜夜即使累垮\n别到无牙先张牙\n不能明年才说 快乐吗</string>
+
+    <string name="scroll_float_button_behavior">com.every.md.behavior.ScrollAwareFABBehaviorDefault</string>
+
+    <string name="test_shortcut_disable_msg">shortcutDisabledMessage</string>
+    <string name="test_shortcut_long_label">测试长标题</string>
+    <string name="test_shortcut_short_label">shortcutShortLabel</string>
+
+
+    <string name="search_shortcut_disable_msg">shortcutDisabledMessage</string>
+    <string name="search_shortcut_long_label">点击搜索</string>
+    <string name="search_shortcut_short_label">shortcutShortLabel</string>
+</resources>
