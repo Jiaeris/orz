@@ -13,13 +13,13 @@ import com.every.md.R;
  * Created by Yunga on 2017/8/7.
  */
 
-public class ToolbarImageActivity extends AppCompatActivity {
+public class UserDetailActivity extends AppCompatActivity {
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_toolbar_image);
+        setContentView(R.layout.activity_user_detail);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeButtonEnabled(true);

@@ -22,7 +22,7 @@
         android:shortcutShortLabel="@string/search_shortcut_short_label">
         <intent
             android:action="android.intent.action.VIEW"
-            android:targetClass="com.every.md.activity.ToolbarImageActivity"
+            android:targetClass="com.every.md.activity.UserDetailActivity"
             android:targetPackage="com.every.md" />
         <categories android:name="android.shortcut.conversation" />
     </shortcut>

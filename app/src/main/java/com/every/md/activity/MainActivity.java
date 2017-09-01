@@ -18,7 +18,7 @@ import com.every.md.R;
 /**
  * Created by Yunga on 2017/5/5.
  */
-public class MainActivity extends AppCompatActivity implements AppBarLayout.OnOffsetChangedListener {
+public class MainActivity extends AppCompatActivity implements AppBarLayout.OnOffsetChangedListener, View.OnClickListener {
 
     private AppBarLayout appBarLayout;
 
@@ -52,15 +52,14 @@ public class MainActivity extends AppCompatActivity implements AppBarLayout.OnOf
         drawer.setDrawerListener(mDrawerToggle);
 
         ImageView head_icon_view = findViewById(R.id.head_icon_view);
-        head_icon_view.setOnClickListener(headIconListener);
+        head_icon_view.setOnClickListener(this);
 
         Button search = findViewById(R.id.search);
-        search.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, ToolbarTabActivity.class));
-            }
-        });
+        search.setOnClickListener(this);
+
+        Button live = findViewById(R.id.live);
+        live.setOnClickListener(this);
+
     }
 
     @Override
@@ -103,11 +102,18 @@ public class MainActivity extends AppCompatActivity implements AppBarLayout.OnOf
         appBarLayout.removeOnOffsetChangedListener(this);
     }
 
-    private View.OnClickListener headIconListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            startActivity(new Intent(MainActivity.this, ToolbarImageActivity.class));
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.head_icon_view:
+                startActivity(new Intent(this, UserDetailActivity.class));
+                break;
+            case R.id.search:
+                startActivity(new Intent(this, ToolbarTabActivity.class));
+                break;
+            case R.id.live:
+                startActivity(new Intent(this, LiveActivity.class));
+                break;
         }
-    };
-
+    }
 }

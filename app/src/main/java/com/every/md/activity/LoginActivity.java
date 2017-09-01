@@ -2,6 +2,7 @@ package com.every.md.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.icu.util.Output;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,12 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.every.md.R;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.Socket;
+import java.net.SocketAddress;
 
 /**
  * Created by Yunga on 2017/5/5.
@@ -46,10 +53,5 @@ public class LoginActivity extends AppCompatActivity {
         inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
-    private View.OnClickListener loginBtnListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            startActivity(new Intent(LoginActivity.this, MainActivity.class));
-        }
-    };
+    private View.OnClickListener loginBtnListener = v -> startActivity(new Intent(LoginActivity.this, MainActivity.class));
 }
