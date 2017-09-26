@@ -6,12 +6,17 @@ import android.icu.util.Output;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.every.md.R;
+import com.every.md.http.HttpClient;
+import com.every.md.http.HttpListener;
+import com.every.md.http.HttpRequest;
+import com.every.md.nativeorz.LoadNativeLib;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -24,6 +29,7 @@ import java.net.SocketAddress;
  */
 
 public class LoginActivity extends AppCompatActivity {
+    private final String TAG = "[LoginActivity]";
     private EditText account;
     private EditText password;
 
@@ -39,6 +45,8 @@ public class LoginActivity extends AppCompatActivity {
         login_btn.setOnClickListener(loginBtnListener);
 
         findViewById(R.id.login_layout).setOnClickListener(v -> exitEdit());
+
+        LoadNativeLib.test();
 
     }
 

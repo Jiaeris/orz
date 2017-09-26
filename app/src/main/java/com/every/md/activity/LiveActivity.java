@@ -12,14 +12,14 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
 import com.every.md.R;
-
-import java.io.IOException;
+import com.every.md.encoder.H264Encoder;
+import com.every.md.nativeorz.LoadNativeLib;
 
 /**
  * Created by Yunga on 2017/9/1.
  */
 
-public class LiveActivity extends AppCompatActivity implements SurfaceHolder.Callback, Camera.PreviewCallback {
+public class LiveActivity extends AppCompatActivity implements SurfaceHolder.Callback {
 
     private static final String TAG = "[LiveActivity]";
     private Camera mCamera = null;
@@ -30,6 +30,8 @@ public class LiveActivity extends AppCompatActivity implements SurfaceHolder.Cal
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_live);
 
+        Log.d(TAG, "onCreate: " + LoadNativeLib.helloCpp("hahahahahahaha".getBytes(), 20, 20));
+
         SurfaceView surface_view = findViewById(R.id.surface_view);
         mSurfaceHolder = surface_view.getHolder();
         mSurfaceHolder.addCallback(this);
@@ -38,35 +40,33 @@ public class LiveActivity extends AppCompatActivity implements SurfaceHolder.Cal
 
     @Override
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
-        try {
-            mCamera = getCameraInstance();
-            mCamera.setPreviewDisplay(surfaceHolder);
-            mCamera.startPreview();
-        } catch (IOException e) {
-            Log.d(TAG, "Error setting mCamera preview: " + e.getMessage());
-        }
+        Log.d(TAG, "surfaceCreated");
+        mCamera = getCameraInstance();
     }
 
     @Override
     public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i1, int i2) {
+        Log.d(TAG, "surfaceChanged");
         if (surfaceHolder.getSurface() == null) {
             return;
         }
-
         try {
             mCamera.stopPreview();
         } catch (Exception e) {
             // ignore: tried to stop a non-existent preview
         }
-
         // set preview size and make any resize, rotate or
         // reformatting changes here
+        //to do
 
         // start preview with new settings
         try {
             mCamera.setPreviewDisplay(surfaceHolder);
             mCamera.startPreview();
-
+            //初始化视频编解码器
+            Camera.Size preview_size = mCamera.getParameters().getPreviewSize();
+//            avcDecode = new AvcDecoder(preview_size.width, preview_size.height, surfaceHolder.getSurface());
+            mCamera.setPreviewCallback(new H264Encoder(preview_size));
         } catch (Exception e) {
             Log.d(TAG, "Error starting camera preview: " + e.getMessage());
         }
@@ -74,7 +74,7 @@ public class LiveActivity extends AppCompatActivity implements SurfaceHolder.Cal
 
     @Override
     public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
-        // empty. Take care of releasing the Camera preview in your activity.
+        Log.d(TAG, "surfaceDestroyed");
 
     }
 
@@ -103,7 +103,6 @@ public class LiveActivity extends AppCompatActivity implements SurfaceHolder.Cal
             params.setWhiteBalance(Camera.Parameters.WHITE_BALANCE_AUTO);
             params.setSceneMode(Camera.Parameters.SCENE_MODE_AUTO);
             mCamera.setParameters(params);
-            mCamera.setPreviewCallback(this);
             setCameraDisplayOrientation(this, Camera.CameraInfo.CAMERA_FACING_BACK, mCamera);
         } catch (Exception e) {
 
@@ -141,8 +140,5 @@ public class LiveActivity extends AppCompatActivity implements SurfaceHolder.Cal
         return result;
     }
 
-    @Override
-    public void onPreviewFrame(byte[] bytes, Camera camera) {
-        Log.d(TAG, "onPreviewFrame: " + bytes.length);
-    }
+
 }
