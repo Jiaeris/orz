@@ -2,7 +2,7 @@
 #include <android/log.h>
 #include <string.h>
 #include <malloc.h>
-#include "../libx264/x264.h"
+#include "../include/libx264/x264.h"
 
 #define LOG_D(...) ((void)__android_log_print(ANDROID_LOG_DEBUG, "lib-native", __VA_ARGS__))
 #define LOG_I(...) ((void)__android_log_print(ANDROID_LOG_INFO , "lib-native", __VA_ARGS__))

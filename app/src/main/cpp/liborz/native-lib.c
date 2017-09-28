@@ -2,8 +2,7 @@
 // Created by Yunga on 2017/9/4.
 //
 #include "native-lib.h"
-#include "../libx264/x264.h"
-
+#include "../include/libx264/x264.h"
 x264_t *x264 = NULL;
 int isInit = 0;
 

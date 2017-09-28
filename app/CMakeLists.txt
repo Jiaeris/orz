@@ -13,15 +13,14 @@ cmake_minimum_required(VERSION 3.4.1)
 #file(GLOB native_src "src/main/cpp/*.c")
 
 add_library( # Specifies the name of the library.
-             native-lib
+             mine
 
              # Sets the library as a shared library.
              SHARED
 
              # Provides a relative path to your source file(s).
              src/main/cpp/liborz/native-lib.c
-             src/main/cpp/liborz/test.cpp
-             src/main/cpp/libx264/x264.c)
+             src/main/cpp/liborz/test.cpp)
 
 find_library( # Defines the name of the path variable that stores the
              # location of the NDK library.
@@ -33,6 +32,15 @@ find_library( # Defines the name of the path variable that stores the
 
 # 关联自己的库和原生库
 target_link_libraries( # Specifies the target library.
-                      native-lib
+                      mine
+                      libx264
                       # Links the log library to the target library.
                       ${log-lib})
+#添加头目录
+include_directories(src/main/cpp/include/libx264)
+add_library(libx264
+            STATIC
+            IMPORTED)
+set_target_properties(libx264
+                      PROPERTIES IMPORTED_LOCATION
+                      ${CMAKE_SOURCE_DIR}/libs/${ANDROID_ABI}/libx264.a)

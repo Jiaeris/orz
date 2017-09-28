@@ -46,8 +46,6 @@ public class LoginActivity extends AppCompatActivity {
 
         findViewById(R.id.login_layout).setOnClickListener(v -> exitEdit());
 
-        LoadNativeLib.test();
-
     }
 
     private void exitEdit() {
