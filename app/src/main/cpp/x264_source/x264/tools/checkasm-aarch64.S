@@ -53,7 +53,7 @@ error_message:
 
 .text
 
-// max number of args used by any x264 asm function.
+// max number of args used by any X264 asm function.
 #define MAX_ARGS 15
 
 #define CLOBBER_STACK ((8*MAX_ARGS + 15) & ~15)

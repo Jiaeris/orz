@@ -463,7 +463,7 @@ void x264_macroblock_slice_init( x264_t *h )
             for( int i = 0; i < h->i_ref[0] << SLICE_MBAFF; i++ )
             {
                 /* Mask off high bits to avoid frame num collisions with -1/-2.
-                 * In current x264 frame num values don't cover a range of more
+                 * In current X264 frame num values don't cover a range of more
                  * than 32, so 6 bits is enough for uniqueness. */
                 if( !MB_INTERLACED )
                     deblock_ref_table(i) = h->fref[0][i]->i_frame_num&63;

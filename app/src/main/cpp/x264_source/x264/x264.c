@@ -45,7 +45,7 @@
 #include "output/output.h"
 #include "filters/filters.h"
 
-#define FAIL_IF_ERROR( cond, ... ) FAIL_IF_ERR( cond, "x264", __VA_ARGS__ )
+#define FAIL_IF_ERROR( cond, ... ) FAIL_IF_ERR( cond, "X264", __VA_ARGS__ )
 
 #if HAVE_LAVF
 #undef DECLARE_ALIGNED
@@ -308,9 +308,9 @@ void x264_cli_printf( int i_level, const char *fmt, ... )
 static void print_version_info( void )
 {
 #ifdef X264_POINTVER
-    printf( "x264 "X264_POINTVER"\n" );
+    printf( "X264 "X264_POINTVER"\n" );
 #else
-    printf( "x264 0.%d.X\n", X264_BUILD );
+    printf( "X264 0.%d.X\n", X264_BUILD );
 #endif
 #if HAVE_SWSCALE
     printf( "(libswscale %d.%d.%d)\n", LIBSWSCALE_VERSION_MAJOR, LIBSWSCALE_VERSION_MINOR, LIBSWSCALE_VERSION_MICRO );
@@ -331,9 +331,9 @@ static void print_version_info( void )
 #else
     printf( "using an unknown compiler\n" );
 #endif
-    printf( "x264 configuration: --bit-depth=%d --chroma-format=%s\n", X264_BIT_DEPTH, chroma_format_names[X264_CHROMA_FORMAT] );
+    printf( "X264 configuration: --bit-depth=%d --chroma-format=%s\n", X264_BIT_DEPTH, chroma_format_names[X264_CHROMA_FORMAT] );
     printf( "libx264 configuration: --bit-depth=%d --chroma-format=%s\n", x264_bit_depth, chroma_format_names[x264_chroma_format] );
-    printf( "x264 license: " );
+    printf( "X264 license: " );
 #if HAVE_GPL
     printf( "GPL version 2 or later\n" );
 #else
@@ -471,8 +471,8 @@ static void help( x264_param_t *defaults, int longhelp )
 #define H0 printf
 #define H1 if( longhelp >= 1 ) printf
 #define H2 if( longhelp == 2 ) printf
-    H0( "x264 core:%d%s\n"
-        "Syntax: x264 [options] -o outfile infile\n"
+    H0( "X264 core:%d%s\n"
+        "Syntax: X264 [options] -o outfile infile\n"
         "\n"
         "Infile can be raw (in which case resolution is required),\n"
         "  or YUV4MPEG (*.y4m),\n"
@@ -519,20 +519,20 @@ static void help( x264_param_t *defaults, int longhelp )
     H0( "Example usage:\n" );
     H0( "\n" );
     H0( "      Constant quality mode:\n" );
-    H0( "            x264 --crf 24 -o <output> <input>\n" );
+    H0( "            X264 --crf 24 -o <output> <input>\n" );
     H0( "\n" );
     H0( "      Two-pass with a bitrate of 1000kbps:\n" );
-    H0( "            x264 --pass 1 --bitrate 1000 -o <output> <input>\n" );
-    H0( "            x264 --pass 2 --bitrate 1000 -o <output> <input>\n" );
+    H0( "            X264 --pass 1 --bitrate 1000 -o <output> <input>\n" );
+    H0( "            X264 --pass 2 --bitrate 1000 -o <output> <input>\n" );
     H0( "\n" );
     H0( "      Lossless:\n" );
-    H0( "            x264 --qp 0 -o <output> <input>\n" );
+    H0( "            X264 --qp 0 -o <output> <input>\n" );
     H0( "\n" );
     H0( "      Maximum PSNR at the cost of speed and visual quality:\n" );
-    H0( "            x264 --preset placebo --tune psnr -o <output> <input>\n" );
+    H0( "            X264 --preset placebo --tune psnr -o <output> <input>\n" );
     H0( "\n" );
     H0( "      Constant bitrate at 1000kbps with a 2 second-buffer:\n");
-    H0( "            x264 --vbv-bufsize 2000 --bitrate 1000 -o <output> <input>\n" );
+    H0( "            X264 --vbv-bufsize 2000 --bitrate 1000 -o <output> <input>\n" );
     H0( "\n" );
     H0( "Presets:\n" );
     H0( "\n" );
@@ -757,7 +757,7 @@ static void help( x264_param_t *defaults, int longhelp )
         "                                  or  b=<float> (bitrate multiplier)\n" );
     H2( "      --qpfile <string>       Force frametypes and QPs for some or all frames\n"
         "                              Format of each line: framenumber frametype QP\n"
-        "                              QP is optional (none lets x264 choose). Frametypes: I,i,K,P,B,b.\n"
+        "                              QP is optional (none lets X264 choose). Frametypes: I,i,K,P,B,b.\n"
         "                                  K=<I or i> depending on open-gop setting\n"
         "                              QPs are restricted by qpmin/qpmax.\n" );
     H1( "\n" );
@@ -1161,11 +1161,11 @@ static int select_output( const char *muxer, char *filename, x264_param_t *param
         param->b_repeat_headers = 0;
         if( param->i_nal_hrd == X264_NAL_HRD_CBR )
         {
-            x264_cli_log( "x264", X264_LOG_WARNING, "cbr nal-hrd is not compatible with mp4\n" );
+            x264_cli_log( "X264", X264_LOG_WARNING, "cbr nal-hrd is not compatible with mp4\n" );
             param->i_nal_hrd = X264_NAL_HRD_VBR;
         }
 #else
-        x264_cli_log( "x264", X264_LOG_ERROR, "not compiled with MP4 output support\n" );
+        x264_cli_log( "X264", X264_LOG_ERROR, "not compiled with MP4 output support\n" );
         return -1;
 #endif
     }
@@ -1212,7 +1212,7 @@ static int select_input( const char *demuxer, char *used_demuxer, char *filename
         cli_input = avs_input;
         module = "avs";
 #else
-        x264_cli_log( "x264", X264_LOG_ERROR, "not compiled with AVS input support\n" );
+        x264_cli_log( "X264", X264_LOG_ERROR, "not compiled with AVS input support\n" );
         return -1;
 #endif
     }
@@ -1445,7 +1445,7 @@ static int parse( int argc, char **argv, x264_param_t *param, cli_opt_t *opt )
                 FAIL_IF_ERROR( !opt->qpfile, "can't open qpfile `%s'\n", optarg );
                 if( !x264_is_regular_file( opt->qpfile ) )
                 {
-                    x264_cli_log( "x264", X264_LOG_ERROR, "qpfile incompatible with non-regular file `%s'\n", optarg );
+                    x264_cli_log( "X264", X264_LOG_ERROR, "qpfile incompatible with non-regular file `%s'\n", optarg );
                     fclose( opt->qpfile );
                     return -1;
                 }
@@ -1562,7 +1562,7 @@ generic_option:
         if( b_error )
         {
             const char *name = long_options_index > 0 ? long_options[long_options_index].name : argv[optind-2];
-            x264_cli_log( "x264", X264_LOG_ERROR, "invalid argument: %s = %s\n", name, optarg );
+            x264_cli_log( "X264", X264_LOG_ERROR, "invalid argument: %s = %s\n", name, optarg );
             return -1;
         }
     }
@@ -1576,7 +1576,7 @@ generic_option:
         return -1;
 
     /* Get the file name */
-    FAIL_IF_ERROR( optind > argc - 1 || !output_filename, "No %s file. Run x264 --help for a list of options.\n",
+    FAIL_IF_ERROR( optind > argc - 1 || !output_filename, "No %s file. Run X264 --help for a list of options.\n",
                    optind > argc - 1 ? "input" : "output" );
 
     if( select_output( muxer, output_filename, param ) )
@@ -1632,7 +1632,7 @@ generic_option:
     {
         if( thread_input.open_file( NULL, &opt->hin, &info, NULL ) )
         {
-            fprintf( stderr, "x264 [error]: threaded input failed\n" );
+            fprintf( stderr, "X264 [error]: threaded input failed\n" );
             return -1;
         }
         cli_input = thread_input;
@@ -1703,13 +1703,13 @@ generic_option:
     if( !b_user_interlaced && info.interlaced )
     {
 #if HAVE_INTERLACED
-        x264_cli_log( "x264", X264_LOG_WARNING, "input appears to be interlaced, enabling %cff interlaced mode.\n"
+        x264_cli_log( "X264", X264_LOG_WARNING, "input appears to be interlaced, enabling %cff interlaced mode.\n"
                       "                If you want otherwise, use --no-interlaced or --%cff\n",
                       info.tff ? 't' : 'b', info.tff ? 'b' : 't' );
         param->b_interlaced = 1;
         param->b_tff = !!info.tff;
 #else
-        x264_cli_log( "x264", X264_LOG_WARNING, "input appears to be interlaced, but not compiled with interlaced support\n" );
+        x264_cli_log( "X264", X264_LOG_WARNING, "input appears to be interlaced, but not compiled with interlaced support\n" );
 #endif
     }
     /* if the user never specified the output range and the input is now rgb, default it to pc */
@@ -1755,7 +1755,7 @@ static void parse_qpfile( cli_opt_t *opt, x264_picture_t *pic, int i_frame )
         {
             if( file_pos < 0 || fseek( opt->qpfile, file_pos, SEEK_SET ) )
             {
-                x264_cli_log( "x264", X264_LOG_ERROR, "qpfile seeking failed\n" );
+                x264_cli_log( "X264", X264_LOG_ERROR, "qpfile seeking failed\n" );
                 fclose( opt->qpfile );
                 opt->qpfile = NULL;
             }
@@ -1774,7 +1774,7 @@ static void parse_qpfile( cli_opt_t *opt, x264_picture_t *pic, int i_frame )
         else ret = 0;
         if( ret < 2 || qp < -1 || qp > QP_MAX )
         {
-            x264_cli_log( "x264", X264_LOG_ERROR, "can't parse qpfile for frame %d\n", i_frame );
+            x264_cli_log( "X264", X264_LOG_ERROR, "can't parse qpfile for frame %d\n", i_frame );
             fclose( opt->qpfile );
             opt->qpfile = NULL;
             break;
@@ -1818,12 +1818,12 @@ static int64_t print_status( int64_t i_start, int64_t i_previous, int i_frame, i
     if( i_frame_total )
     {
         int eta = i_elapsed * (i_frame_total - i_frame) / ((int64_t)i_frame * 1000000);
-        sprintf( buf, "x264 [%.1f%%] %d/%d frames, %.2f fps, %.2f kb/s, eta %d:%02d:%02d",
+        sprintf( buf, "X264 [%.1f%%] %d/%d frames, %.2f fps, %.2f kb/s, eta %d:%02d:%02d",
                  100. * i_frame / i_frame_total, i_frame, i_frame_total, fps, bitrate,
                  eta/3600, (eta/60)%60, eta%60 );
     }
     else
-        sprintf( buf, "x264 %d frames: %.2f fps, %.2f kb/s", i_frame, fps, bitrate );
+        sprintf( buf, "X264 %d frames: %.2f fps, %.2f kb/s", i_frame, fps, bitrate );
     fprintf( stderr, "%s  \r", buf+5 );
     x264_cli_set_console_title( buf );
     fflush( stderr ); // needed in windows
@@ -1938,10 +1938,10 @@ static int encode( x264_param_t *param, cli_opt_t *opt )
         if( pic.i_pts <= largest_pts )
         {
             if( cli_log_level >= X264_LOG_DEBUG || pts_warning_cnt < MAX_PTS_WARNING )
-                x264_cli_log( "x264", X264_LOG_WARNING, "non-strictly-monotonic pts at frame %d (%"PRId64" <= %"PRId64")\n",
+                x264_cli_log( "X264", X264_LOG_WARNING, "non-strictly-monotonic pts at frame %d (%"PRId64" <= %"PRId64")\n",
                              i_frame, pic.i_pts, largest_pts );
             else if( pts_warning_cnt == MAX_PTS_WARNING )
-                x264_cli_log( "x264", X264_LOG_WARNING, "too many nonmonotonic pts warnings, suppressing further ones\n" );
+                x264_cli_log( "X264", X264_LOG_WARNING, "too many nonmonotonic pts warnings, suppressing further ones\n" );
             pts_warning_cnt++;
             pic.i_pts = largest_pts + ticks_per_frame;
         }
@@ -1998,7 +1998,7 @@ static int encode( x264_param_t *param, cli_opt_t *opt )
     }
 fail:
     if( pts_warning_cnt >= MAX_PTS_WARNING && cli_log_level < X264_LOG_DEBUG )
-        x264_cli_log( "x264", X264_LOG_WARNING, "%d suppressed nonmonotonic pts warnings\n", pts_warning_cnt-MAX_PTS_WARNING );
+        x264_cli_log( "X264", X264_LOG_WARNING, "%d suppressed nonmonotonic pts warnings\n", pts_warning_cnt-MAX_PTS_WARNING );
 
     /* duration algorithm fails when only 1 frame is output */
     if( i_frame_output == 1 )

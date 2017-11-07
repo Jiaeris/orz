@@ -43,6 +43,9 @@
             android:name="com.every.md.activity.ToolbarTabActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
+        <activity
+            android:name=".activity.AndroidBaseActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

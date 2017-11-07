@@ -101,6 +101,12 @@
                 android:drawableLeft="@mipmap/setting_48px"
                 android:text="设置" />
 
+            <Button
+                android:id="@+id/adbase"
+                style="@style/DrawerBtnStyle"
+                android:drawableLeft="@mipmap/ic_launcher_round"
+                android:text="BASE" />
+
         </LinearLayout>
 
     </LinearLayout>

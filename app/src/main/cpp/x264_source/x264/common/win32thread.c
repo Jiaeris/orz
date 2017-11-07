@@ -28,7 +28,7 @@
 /* Microsoft's way of supporting systems with >64 logical cpus can be found at
  * http://www.microsoft.com/whdc/system/Sysinternals/MoreThan64proc.mspx */
 
-/* Based on the agreed standing that x264 does not need to utilize >64 logical cpus,
+/* Based on the agreed standing that X264 does not need to utilize >64 logical cpus,
  * this API does not detect nor utilize more than 64 cpus for systems that have them. */
 
 #include "common.h"

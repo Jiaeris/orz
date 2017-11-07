@@ -1,7 +1,7 @@
 ;*****************************************************************************
 ;* checkasm-a.asm: assembly check tool
 ;*****************************************************************************
-;* Copyright (C) 2008-2016 x264 project
+;* Copyright (C) 2008-2016 X264 project
 ;*
 ;* Authors: Loren Merritt <lorenm@u.washington.edu>
 ;*          Henrik Gramner <henrik@gramner.com>
@@ -21,7 +21,7 @@
 ;* Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02111, USA.
 ;*
 ;* This program is also available under a commercial proprietary license.
-;* For more information, contact us at licensing@x264.com.
+;* For more information, contact us at licensing@X264.com.
 ;*****************************************************************************
 
 %include "x86inc.asm"
@@ -57,7 +57,7 @@ SECTION .text
 
 cextern_naked puts
 
-; max number of args used by any x264 asm function.
+; max number of args used by any X264 asm function.
 ; (max_args % 4) must equal 3 for stack alignment
 %define max_args 15
 

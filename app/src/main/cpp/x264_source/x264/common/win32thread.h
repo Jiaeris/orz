@@ -27,7 +27,7 @@
 #define X264_WIN32THREAD_H
 
 #include <windows.h>
-/* the following macro is used within x264 */
+/* the following macro is used within X264 */
 #undef ERROR
 
 typedef struct

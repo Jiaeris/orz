@@ -13,7 +13,7 @@ import android.view.SurfaceView;
 
 import com.every.md.R;
 import com.every.md.encoder.H264Encoder;
-import com.every.md.nativeorz.LoadNativeLib;
+import com.every.md.nativeorz.X264;
 
 /**
  * Created by Yunga on 2017/9/1.
@@ -29,9 +29,6 @@ public class LiveActivity extends AppCompatActivity implements SurfaceHolder.Cal
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_live);
-
-        Log.d(TAG, "onCreate: " + LoadNativeLib.helloCpp("hahahahahahaha".getBytes(), 20, 20));
-
         SurfaceView surface_view = findViewById(R.id.surface_view);
         mSurfaceHolder = surface_view.getHolder();
         mSurfaceHolder.addCallback(this);
@@ -64,7 +61,9 @@ public class LiveActivity extends AppCompatActivity implements SurfaceHolder.Cal
             mCamera.setPreviewDisplay(surfaceHolder);
             mCamera.startPreview();
             //初始化视频编解码器
-            Camera.Size preview_size = mCamera.getParameters().getPreviewSize();
+            Camera.Parameters parameters = mCamera.getParameters();
+            Camera.Size preview_size = parameters.getPreviewSize();
+//            parameters.setPreviewFormat(ImageFormat.NV21);
 //            avcDecode = new AvcDecoder(preview_size.width, preview_size.height, surfaceHolder.getSurface());
             mCamera.setPreviewCallback(new H264Encoder(preview_size));
         } catch (Exception e) {
@@ -75,6 +74,7 @@ public class LiveActivity extends AppCompatActivity implements SurfaceHolder.Cal
     @Override
     public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
         Log.d(TAG, "surfaceDestroyed");
+        X264.CloseEncoder();
 
     }
 

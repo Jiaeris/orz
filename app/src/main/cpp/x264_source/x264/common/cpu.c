@@ -244,7 +244,7 @@ uint32_t x264_cpu_detect( void )
         {
             /* 6/9 (pentium-m "banias"), 6/13 (pentium-m "dothan"), and 6/14 (core1 "yonah")
              * theoretically support sse2, but it's significantly slower than mmx for
-             * almost all of x264's functions, so let's just pretend they don't. */
+             * almost all of X264's functions, so let's just pretend they don't. */
             if( model == 9 || model == 13 || model == 14 )
             {
                 cpu &= ~(X264_CPU_SSE2|X264_CPU_SSE3);
@@ -405,7 +405,7 @@ uint32_t x264_cpu_detect( void )
     // NEON requires at least ARMv7, ARMv8 may require changes here, but
     // hopefully this hacky detection method will have been replaced by then.
     // Note that there is potential for a race condition if another program or
-    // x264 instance disables or reinits the counters while x264 is using them,
+    // X264 instance disables or reinits the counters while X264 is using them,
     // which may result in incorrect detection and the counters stuck enabled.
     // right now Apple does not seem to support performance counters for this test
 #ifndef __MACH__

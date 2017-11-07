@@ -1107,7 +1107,7 @@ static void x264_log_default( void *p_unused, int i_level, const char *psz_fmt, 
             psz_prefix = "unknown";
             break;
     }
-    fprintf( stderr, "x264 [%s]: ", psz_prefix );
+    fprintf( stderr, "X264 [%s]: ", psz_prefix );
     x264_vfprintf( stderr, psz_fmt, arg );
 }
 

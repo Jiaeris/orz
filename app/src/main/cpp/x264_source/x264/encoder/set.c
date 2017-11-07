@@ -123,7 +123,7 @@ void x264_sps_init( x264_sps_t *sps, int i_id, x264_param_t *param )
         sps->i_profile_idc  = PROFILE_BASELINE;
 
     sps->b_constraint_set0  = sps->i_profile_idc == PROFILE_BASELINE;
-    /* x264 doesn't support the features that are in Baseline and not in Main,
+    /* X264 doesn't support the features that are in Baseline and not in Main,
      * namely arbitrary_slice_order and slice_groups. */
     sps->b_constraint_set1  = sps->i_profile_idc <= PROFILE_MAIN;
     /* Never set constraint_set2, it is not necessary and not used in real world. */
@@ -577,8 +577,8 @@ int x264_sei_version_write( x264_t *h, bs_t *s )
     CHECKED_MALLOC( payload, 200 + strlen( opts ) );
 
     memcpy( payload, uuid, 16 );
-    sprintf( payload+16, "x264 - core %d%s - H.264/MPEG-4 AVC codec - "
-             "Copy%s 2003-2016 - http://www.videolan.org/x264.html - options: %s",
+    sprintf( payload+16, "X264 - core %d%s - H.264/MPEG-4 AVC codec - "
+             "Copy%s 2003-2016 - http://www.videolan.org/X264.html - options: %s",
              X264_BUILD, X264_VERSION, HAVE_GPL?"left":"right", opts );
     length = strlen(payload)+1;
 

@@ -4,10 +4,10 @@
 #include <malloc.h>
 #include "../include/libx264/x264.h"
 
-#define LOG_D(...) ((void)__android_log_print(ANDROID_LOG_DEBUG, "lib-native", __VA_ARGS__))
-#define LOG_I(...) ((void)__android_log_print(ANDROID_LOG_INFO , "lib-native", __VA_ARGS__))
-#define LOG_W(...) ((void)__android_log_print(ANDROID_LOG_WARN , "lib-native", __VA_ARGS__))
-#define LOG_E(...) ((void)__android_log_print(ANDROID_LOG_ERROR, "lib-native", __VA_ARGS__))
+#define LOG_D(...) ((void)__android_log_print(ANDROID_LOG_DEBUG, "mine", __VA_ARGS__))
+#define LOG_I(...) ((void)__android_log_print(ANDROID_LOG_INFO , "mine", __VA_ARGS__))
+#define LOG_W(...) ((void)__android_log_print(ANDROID_LOG_WARN , "mine", __VA_ARGS__))
+#define LOG_E(...) ((void)__android_log_print(ANDROID_LOG_ERROR, "mine", __VA_ARGS__))
 
 #define STR "hello native lib"
 

@@ -1,7 +1,7 @@
 ;*****************************************************************************
 ;* sad16-a.asm: x86 high depth sad functions
 ;*****************************************************************************
-;* Copyright (C) 2010-2016 x264 project
+;* Copyright (C) 2010-2016 X264 project
 ;*
 ;* Authors: Oskar Arvidsson <oskar@irock.se>
 ;*          Henrik Gramner <henrik@gramner.com>
@@ -21,7 +21,7 @@
 ;* Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02111, USA.
 ;*
 ;* This program is also available under a commercial proprietary license.
-;* For more information, contact us at licensing@x264.com.
+;* For more information, contact us at licensing@X264.com.
 ;*****************************************************************************
 
 %include "x86inc.asm"

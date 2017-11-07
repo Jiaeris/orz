@@ -18,7 +18,7 @@ Test::Test() {
 }
 
 JNIEXPORT void JNICALL
-Java_com_every_md_nativeorz_LoadNativeLib_test(JNIEnv *env,
+Java_com_every_md_nativeorz_X264_test(JNIEnv *env,
                                                jclass type) {
     Test::helloCpp();
 }

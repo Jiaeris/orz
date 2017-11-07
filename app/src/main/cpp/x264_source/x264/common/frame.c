@@ -371,13 +371,13 @@ int x264_frame_copy_picture( x264_t *h, x264_frame_t *dst, x264_picture_t *src )
 #if HIGH_BIT_DEPTH
     if( !(src->img.i_csp & X264_CSP_HIGH_DEPTH) )
     {
-        x264_log( h, X264_LOG_ERROR, "This build of x264 requires high depth input. Rebuild to support 8-bit input.\n" );
+        x264_log( h, X264_LOG_ERROR, "This build of X264 requires high depth input. Rebuild to support 8-bit input.\n" );
         return -1;
     }
 #else
     if( src->img.i_csp & X264_CSP_HIGH_DEPTH )
     {
-        x264_log( h, X264_LOG_ERROR, "This build of x264 requires 8-bit input. Rebuild to support high depth input.\n" );
+        x264_log( h, X264_LOG_ERROR, "This build of X264 requires 8-bit input. Rebuild to support high depth input.\n" );
         return -1;
     }
 #endif

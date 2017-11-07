@@ -56,21 +56,21 @@ BEGIN
     BEGIN
         BLOCK "040904B0"
         BEGIN
-            VALUE "CompanyName",      "x264 project"
+            VALUE "CompanyName",      "X264 project"
 #ifdef DLL
             VALUE "FileDescription",  "H.264 (MPEG-4 AVC) encoder library"
 #else
             VALUE "FileDescription",  "H.264 (MPEG-4 AVC) encoder"
 #endif
             VALUE "FileVersion",      X264_POINTVER
-            VALUE "InternalName",     "x264"
-            VALUE "LegalCopyright",   "Copyright (C) 2003-2016 x264 project"
+            VALUE "InternalName",     "X264"
+            VALUE "LegalCopyright",   "Copyright (C) 2003-2016 X264 project"
 #ifdef DLL
             VALUE "OriginalFilename", "libx264-" xstr(X264_BUILD) ".dll"
 #else
-            VALUE "OriginalFilename", "x264.exe"
+            VALUE "OriginalFilename", "X264.exe"
 #endif
-            VALUE "ProductName",      "x264"
+            VALUE "ProductName",      "X264"
             VALUE "ProductVersion",   X264_POINTVER
         END
     END

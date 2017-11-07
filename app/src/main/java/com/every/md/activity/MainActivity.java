@@ -60,6 +60,8 @@ public class MainActivity extends AppCompatActivity implements AppBarLayout.OnOf
         Button live = findViewById(R.id.live);
         live.setOnClickListener(this);
 
+        Button adbase = findViewById(R.id.adbase);
+        adbase.setOnClickListener(this);
     }
 
     @Override
@@ -113,6 +115,9 @@ public class MainActivity extends AppCompatActivity implements AppBarLayout.OnOf
                 break;
             case R.id.live:
                 startActivity(new Intent(this, LiveActivity.class));
+                break;
+            case R.id.adbase:
+                startActivity(new Intent(this, AndroidBaseActivity.class));
                 break;
         }
     }

@@ -2750,7 +2750,7 @@ static int add_flags( int *cpu_ref, int *cpu_new, int flags, const char *name )
     if( *cpu_new & X264_CPU_SSE2_IS_FAST )
         *cpu_new &= ~X264_CPU_SSE2_IS_SLOW;
     if( !quiet )
-        fprintf( stderr, "x264: %s\n", name );
+        fprintf( stderr, "X264: %s\n", name );
     return check_all_funcs( *cpu_ref, *cpu_new );
 }
 
@@ -2859,7 +2859,7 @@ static int check_all_flags( void )
 #elif ARCH_PPC
     if( cpu_detect & X264_CPU_ALTIVEC )
     {
-        fprintf( stderr, "x264: ALTIVEC against C\n" );
+        fprintf( stderr, "X264: ALTIVEC against C\n" );
         ret = check_all_funcs( 0, X264_CPU_ALTIVEC );
     }
 #elif ARCH_ARM
@@ -2909,7 +2909,7 @@ int main(int argc, char *argv[])
     }
 
     int seed = ( argc > 1 ) ? atoi(argv[1]) : x264_mdate();
-    fprintf( stderr, "x264: using random seed %u\n", seed );
+    fprintf( stderr, "X264: using random seed %u\n", seed );
     srand( seed );
 
     buf1 = x264_malloc( 0x1e00 + 0x2000*sizeof(pixel) + 32*BENCH_ALIGNS );
@@ -2950,10 +2950,10 @@ int main(int argc, char *argv[])
 
     if( ret )
     {
-        fprintf( stderr, "x264: at least one test has failed. Go and fix that Right Now!\n" );
+        fprintf( stderr, "X264: at least one test has failed. Go and fix that Right Now!\n" );
         return -1;
     }
-    fprintf( stderr, "x264: All tests passed Yeah :)\n" );
+    fprintf( stderr, "X264: All tests passed Yeah :)\n" );
     if( do_bench )
         print_bench();
     return 0;

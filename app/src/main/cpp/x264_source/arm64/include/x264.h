@@ -35,7 +35,7 @@ extern "C" {
 #if !defined(_STDINT_H) && !defined(_STDINT_H_) && !defined(_STDINT_H_INCLUDED) && !defined(_STDINT) &&\
     !defined(_SYS_STDINT_H_) && !defined(_INTTYPES_H) && !defined(_INTTYPES_H_) && !defined(_INTTYPES)
 # ifdef _MSC_VER
-#  pragma message("You must include stdint.h or inttypes.h before x264.h")
+#  pragma message("You must include stdint.h or inttypes.h before X264.h")
 # else
 #  warning You must include stdint.h or inttypes.h before x264.h
 # endif
@@ -605,7 +605,7 @@ int x264_param_parse( x264_param_t *, const char *name, const char *value );
  * Advanced parameter handling functions
  ****************************************************************************/
 
-/* These functions expose the full power of x264's preset-tune-profile system for
+/* These functions expose the full power of X264's preset-tune-profile system for
  * easy adjustment of large numbers of internal parameters.
  *
  * In order to replicate x264CLI's option handling, these functions MUST be called
@@ -671,8 +671,8 @@ int     x264_param_apply_profile( x264_param_t *, const char *profile );
  ****************************************************************************/
 
 /* x264_bit_depth:
- *      Specifies the number of bits per pixel that x264 uses. This is also the
- *      bit depth that x264 encodes in. If this value is > 8, x264 will read
+ *      Specifies the number of bits per pixel that X264 uses. This is also the
+ *      bit depth that X264 encodes in. If this value is > 8, X264 will read
  *      two bytes of input data for each pixel sample, and expect the upper
  *      (16-x264_bit_depth) bits to be zero.
  *      Note: The flag X264_CSP_HIGH_DEPTH must be used to specify the
@@ -680,9 +680,9 @@ int     x264_param_apply_profile( x264_param_t *, const char *profile );
 X264_API extern const int x264_bit_depth;
 
 /* x264_chroma_format:
- *      Specifies the chroma formats that x264 supports encoding. When this
+ *      Specifies the chroma formats that X264 supports encoding. When this
  *      value is non-zero, then it represents a X264_CSP_* that is the only
- *      chroma format that x264 supports encoding. If the value is 0 then
+ *      chroma format that X264 supports encoding. If the value is 0 then
  *      there are no restrictions. */
 X264_API extern const int x264_chroma_format;
 
@@ -690,7 +690,7 @@ enum pic_struct_e
 {
     PIC_STRUCT_AUTO              = 0, // automatically decide (default)
     PIC_STRUCT_PROGRESSIVE       = 1, // progressive frame
-    // "TOP" and "BOTTOM" are not supported in x264 (PAFF only)
+    // "TOP" and "BOTTOM" are not supported in X264 (PAFF only)
     PIC_STRUCT_TOP_BOTTOM        = 4, // top field followed by bottom
     PIC_STRUCT_BOTTOM_TOP        = 5, // bottom field followed by top
     PIC_STRUCT_TOP_BOTTOM_TOP    = 6, // top field, bottom field, top field repeated
@@ -750,7 +750,7 @@ typedef struct x264_image_properties_t
      * the nearest 16.  If in interlaced mode, height is rounded up to the nearest 32 instead. */
 
     /* In: an array of quantizer offsets to be applied to this image during encoding.
-     *     These are added on top of the decisions made by x264.
+     *     These are added on top of the decisions made by X264.
      *     Offsets can be fractional; they are added before QPs are rounded to integer.
      *     Adaptive quantization must be enabled to use this feature.  Behavior if quant
      *     offsets differ between encoding passes is undefined. */
@@ -762,10 +762,10 @@ typedef struct x264_image_properties_t
     /* In: optional array of flags for each macroblock.
      *     Allows specifying additional information for the encoder such as which macroblocks
      *     remain unchanged.  Usable flags are listed below.
-     *     x264_param_t.analyse.b_mb_info must be set to use this, since x264 needs to track
+     *     x264_param_t.analyse.b_mb_info must be set to use this, since X264 needs to track
      *     extra data internally to make full use of this information.
      *
-     * Out: if b_mb_info_update is set, x264 will update this array as a result of encoding.
+     * Out: if b_mb_info_update is set, X264 will update this array as a result of encoding.
      *
      *      For "MBINFO_CONSTANT", it will remove this flag on any macroblock whose decoded
      *      pixels have changed.  This can be useful for e.g. noting which areas of the
@@ -799,8 +799,8 @@ typedef struct x264_image_properties_t
 typedef struct x264_picture_t
 {
     /* In: force picture type (if not auto)
-     *     If x264 encoding parameters are violated in the forcing of picture types,
-     *     x264 will correct the input picture type and log a warning.
+     *     If X264 encoding parameters are violated in the forcing of picture types,
+     *     X264 will correct the input picture type and log a warning.
      * Out: type of the picture encoded */
     int     i_type;
     /* In: force quantizer for != X264_QP_AUTO */
@@ -825,7 +825,7 @@ typedef struct x264_picture_t
            if it needs the changed parameter to apply immediately. */
     x264_param_t *param;
     /* In: raw image data */
-    /* Out: reconstructed image data.  x264 may skip part of the reconstruction process,
+    /* Out: reconstructed image data.  X264 may skip part of the reconstruction process,
             e.g. deblocking, in frames where it isn't necessary.  To force complete
             reconstruction, at a small speed cost, set b_full_recon. */
     x264_image_t img;

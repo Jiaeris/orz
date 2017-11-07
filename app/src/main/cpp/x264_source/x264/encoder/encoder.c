@@ -46,7 +46,7 @@ static int x264_encoder_frame_end( x264_t *h, x264_t *thread_current,
 
 /****************************************************************************
  *
- ******************************* x264 libs **********************************
+ ******************************* X264 libs **********************************
  *
  ****************************************************************************/
 static double x264_psnr( double sqe, double size )
@@ -434,24 +434,24 @@ static int x264_validate_parameters( x264_t *h, int b_open )
 #ifdef __SSE__
         if( !(cpuflags & X264_CPU_SSE) )
         {
-            x264_log( h, X264_LOG_ERROR, "your cpu does not support SSE1, but x264 was compiled with asm\n");
+            x264_log( h, X264_LOG_ERROR, "your cpu does not support SSE1, but X264 was compiled with asm\n");
             fail = 1;
         }
 #else
         if( !(cpuflags & X264_CPU_MMX2) )
         {
-            x264_log( h, X264_LOG_ERROR, "your cpu does not support MMXEXT, but x264 was compiled with asm\n");
+            x264_log( h, X264_LOG_ERROR, "your cpu does not support MMXEXT, but X264 was compiled with asm\n");
             fail = 1;
         }
 #endif
         if( !fail && !(cpuflags & X264_CPU_CMOV) )
         {
-            x264_log( h, X264_LOG_ERROR, "your cpu does not support CMOV, but x264 was compiled with asm\n");
+            x264_log( h, X264_LOG_ERROR, "your cpu does not support CMOV, but X264 was compiled with asm\n");
             fail = 1;
         }
         if( fail )
         {
-            x264_log( h, X264_LOG_ERROR, "to run x264, recompile without asm (configure --disable-asm)\n");
+            x264_log( h, X264_LOG_ERROR, "to run X264, recompile without asm (configure --disable-asm)\n");
             return -1;
         }
     }
@@ -632,8 +632,8 @@ static int x264_validate_parameters( x264_t *h, int b_open )
             x264_log( h, X264_LOG_ERROR, "broken ffmpeg default settings detected\n" );
             x264_log( h, X264_LOG_ERROR, "use an encoding preset (e.g. -vpre medium)\n" );
             x264_log( h, X264_LOG_ERROR, "preset usage: -vpre <speed> -vpre <profile>\n" );
-            x264_log( h, X264_LOG_ERROR, "speed presets are listed in x264 --help\n" );
-            x264_log( h, X264_LOG_ERROR, "profile is optional; x264 defaults to high\n" );
+            x264_log( h, X264_LOG_ERROR, "speed presets are listed in X264 --help\n" );
+            x264_log( h, X264_LOG_ERROR, "profile is optional; X264 defaults to high\n" );
             return -1;
         }
     }
@@ -652,7 +652,7 @@ static int x264_validate_parameters( x264_t *h, int b_open )
         if( BIT_DEPTH != 10 )
         {
             x264_log( h, X264_LOG_ERROR, "%2d-bit AVC-Intra is not widely compatible\n", BIT_DEPTH );
-            x264_log( h, X264_LOG_ERROR, "10-bit x264 is required to encode AVC-Intra\n" );
+            x264_log( h, X264_LOG_ERROR, "10-bit X264 is required to encode AVC-Intra\n" );
             return -1;
         }
 
@@ -1584,7 +1584,7 @@ x264_t *x264_encoder_open( x264_param_t *param )
     /* Checks for known miscompilation issues. */
     if( h->cost_mv[X264_LOOKAHEAD_QP][2013] != cost_mv_correct[BIT_DEPTH-8] )
     {
-        x264_log( h, X264_LOG_ERROR, "MV cost test failed: x264 has been miscompiled!\n" );
+        x264_log( h, X264_LOG_ERROR, "MV cost test failed: X264 has been miscompiled!\n" );
         goto fail;
     }
 
@@ -1592,7 +1592,7 @@ x264_t *x264_encoder_open( x264_param_t *param )
     volatile int temp = 392;
     if( x264_clz( temp ) != 23 )
     {
-        x264_log( h, X264_LOG_ERROR, "CLZ test failed: x264 has been miscompiled!\n" );
+        x264_log( h, X264_LOG_ERROR, "CLZ test failed: X264 has been miscompiled!\n" );
 #if ARCH_X86 || ARCH_X86_64
         x264_log( h, X264_LOG_ERROR, "Are you attempting to run an SSE4a/LZCNT-targeted build on a CPU that\n" );
         x264_log( h, X264_LOG_ERROR, "doesn't support it?\n" );
@@ -2582,7 +2582,7 @@ static ALWAYS_INLINE void x264_bitstream_backup( x264_t *h, x264_bs_bak_t *bak, 
             memcpy( &bak->cabac, &h->cabac, sizeof(x264_cabac_t) );
         else
             memcpy( &bak->cabac, &h->cabac, offsetof(x264_cabac_t, f8_bits_encoded) );
-        /* x264's CABAC writer modifies the previous byte during carry, so it has to be
+        /* X264's CABAC writer modifies the previous byte during carry, so it has to be
          * backed up. */
         bak->cabac_prevbyte = h->cabac.p[-1];
     }
@@ -3589,7 +3589,7 @@ int     x264_encoder_encode( x264_t *h,
 
     if( h->fenc->b_keyframe )
     {
-        /* Avid's decoder strictly wants two SEIs for AVC-Intra so we can't insert the x264 SEI */
+        /* Avid's decoder strictly wants two SEIs for AVC-Intra so we can't insert the X264 SEI */
         if( h->param.b_repeat_headers && h->fenc->i_frame == 0 && !h->param.i_avcintra_class )
         {
             /* identify ourself */

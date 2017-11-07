@@ -3,6 +3,7 @@ package com.every.md.encoder;
 import android.hardware.Camera;
 import android.util.Log;
 
+import com.every.md.nativeorz.X264;
 import com.github.faucamp.simplertmp.DefaultRtmpPublisher;
 import com.github.faucamp.simplertmp.RtmpHandler;
 
@@ -32,6 +33,9 @@ public class H264Encoder implements Camera.PreviewCallback {
 
         byte[] yuv420 = new byte[width * height * 3 / 2];
 
+        X264.Encoder(yuv420sp, width, height);
+
+        Log.w(TAG, "onPreviewFrame: " + yuv420sp.length);
     }
 
 

@@ -62,7 +62,7 @@ int x264_init_vid_filter( const char *name, hnd_t *handle, cli_vid_filter_t *fil
     cli_vid_filter_t *filter_i = first_filter;
     while( filter_i && strcasecmp( name, filter_i->name ) )
         filter_i = filter_i->next;
-    FAIL_IF_ERR( !filter_i, "x264", "invalid filter `%s'\n", name );
+    FAIL_IF_ERR( !filter_i, "X264", "invalid filter `%s'\n", name );
     if( filter_i->init( handle, filter, info, param, opt_string ) )
         return -1;
 

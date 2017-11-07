@@ -2,27 +2,15 @@ package com.every.md.activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.icu.util.Output;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.every.md.R;
-import com.every.md.http.HttpClient;
-import com.every.md.http.HttpListener;
-import com.every.md.http.HttpRequest;
-import com.every.md.nativeorz.LoadNativeLib;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.Socket;
-import java.net.SocketAddress;
 
 /**
  * Created by Yunga on 2017/5/5.
